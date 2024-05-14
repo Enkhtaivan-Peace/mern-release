@@ -1,0 +1,55 @@
+version: "3.9"
+services:
+  mydb:
+    image: mysql:5.7
+    ports:
+      - "3307:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=12345
+      - MYSQL_DATABASE=ts-sequelize-mysql-demo
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-p12345"]
+      timeout: 20s
+      retries: 10
+    networks:
+      - db_net
+  redis:
+    image: "redis:alpine"
+    ports:
+      - "6379:6379"
+    networks:
+      - redis_net
+  web:
+    # restart: on-failure
+    ###  dev mode доорхийг идэвхжүүлнэ үү  ###
+    command: tail -f /dev/null
+    volumes:
+      - ./web/:/app
+    ###  dev mode дээрхийг идэвхжүүлнэ үү  ###
+    build: ./web
+    ports:
+      - "81:5000"
+    depends_on:
+      mydb:
+        condition: service_healthy
+    networks:
+      - redis_net
+      - db_net
+  # web2:
+  #   restart: on-failure
+  #   build: ./web2
+  #   ports:
+  #     - "82:5000"
+  # nginx:
+  #   build: ./nginx
+  #   ports:
+  #     - "80:80"
+  #   depends_on:
+  #     - web
+  #     # - web2
+
+networks:
+  redis_net:
+    external: false
+  db_net:
+    external: false
