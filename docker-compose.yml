@@ -1,9 +1,9 @@
 version: "3.9"
 services:
-  mydb:
+  mysql:
     image: mysql:5.7
     ports:
-      - "3307:3306"
+      - "3306:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=12345
       - MYSQL_DATABASE=ts-sequelize-mysql-demo
@@ -19,22 +19,64 @@ services:
       - "6379:6379"
     networks:
       - redis_net
-  web:
+  backend:
     # restart: on-failure
     ###  dev mode доорхийг идэвхжүүлнэ үү  ###
-    command: tail -f /dev/null
-    volumes:
-      - ./web/:/app
+    # command: tail -f /dev/null
+    # volumes:
+    #   - ./web/:/app
     ###  dev mode дээрхийг идэвхжүүлнэ үү  ###
-    build: ./web
+    build:
+      context: ./ts-sequelize-mysql-demo
+      dockerfile: ./Dockerfile
     ports:
-      - "81:5000"
+      - "8001:8001"
     depends_on:
-      mydb:
+      mysql:
         condition: service_healthy
     networks:
       - redis_net
       - db_net
+  front_pagesdir:
+    build:
+      context: ./pages-dir-codebase
+      dockerfile: ./Dockerfile
+      target: runner
+    environment:
+      NEXT_TELEMETRY_DISABLED: 1
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      MYSQL_HOST: mysql
+      MYSQL_PORT: 3306
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 12345
+      MYSQL_DATABASE: ts-sequelize-mysql-demo
+    ports:
+      - "3000:3000"
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  front_2:
+    build:
+      context: ./pages-dir-codebase
+      dockerfile: ./Dockerfile
+      target: runner
+    environment:
+      NEXT_TELEMETRY_DISABLED: 1
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      MYSQL_HOST: mysql
+      MYSQL_PORT: 3306
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 12345
+      MYSQL_DATABASE: ts-sequelize-mysql-demo
+    ports:
+      - "3000:3000"
+    depends_on:
+      mysql:
+        condition: service_healthy
+
   # web2:
   #   restart: on-failure
   #   build: ./web2
