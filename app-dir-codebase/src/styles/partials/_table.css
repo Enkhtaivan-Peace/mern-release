@@ -1,0 +1,26 @@
+table {
+    @apply w-full whitespace-nowrap;
+
+    & thead{
+        @apply text-14 font-robotoBold tracking-wide text-left text-gray-500 uppercase border-b border-gray-200 dark:border-gray-700 bg-gray-100;
+    }
+    & th, tr {
+        @apply text-left py-8;    
+    }
+    & th, td {
+        @apply px-10 py-12;
+    }
+    & tbody {
+        @apply bg-white divide-y divide-gray-100 dark:divide-gray-700 dark:bg-gray-800 text-gray-800 dark:text-gray-400;
+    }
+    & tbody tr td:first-child {
+        @apply text-12 font-notoBold uppercase;
+    }
+    tbody tr td {
+        @apply text-14 font-notoMedium;
+    }
+}
+
+.table-wrapper {
+    @apply w-full overflow-hidden border border-gray-200 dark:border-gray-700 rounded-lg mb-8;
+}

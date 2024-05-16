@@ -1,0 +1,72 @@
+@font-face {
+    font-family: 'NotoSans-Regular';
+    src: url('../common/assets/fonts/NotoSans-Regular.ttf') format('truetype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'NotoSans-Regular-Italic';
+    src: url('../common/assets/fonts/NotoSans-Italic.ttf') format('truetype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Noto-Medium';
+    src: url('../common/assets/fonts/NotoSans-Medium.ttf') format('truetype');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Noto-Medium-Italic';
+    src: url('../common/assets/fonts/NotoSans-MediumItalic.ttf') format('truetype');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Noto-Bold';
+    src: url('../common/assets/fonts/NotoSans-Bold.ttf') format('truetype');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Noto-Bold-Italic';
+    src: url('../common/assets/fonts/NotoSans-BoldItalic.ttf') format('truetype');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Railway-Light';
+    src: url('../common/assets/fonts/Raleway-Light.ttf') format('truetype');
+    font-weight: 300;
+}
+@font-face {
+    font-family: 'Railway-Medium';
+    src: url('../common/assets/fonts/Raleway-Medium.ttf') format('truetype');
+    font-weight: 500;
+}
+@font-face {
+    font-family: 'Railway-Bold';
+    src: url('../common/assets/fonts/Raleway-Bold.ttf') format('truetype');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Roboto-Light';
+    src: url('../common/assets/fonts/Roboto-Light.ttf') format('truetype');
+    font-weight: 300;
+}
+@font-face {
+    font-family: 'Roboto-Regular';
+    src: url('../common/assets/fonts/Roboto-Regular.ttf') format('truetype');
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'Roboto-Medium';
+    src: url('../common/assets/fonts/Roboto-Medium.ttf') format('truetype');
+    font-weight: 500;
+}
+@font-face {
+    font-family: 'Roboto-Bold';
+    src: url('../common/assets/fonts/Roboto-Bold.ttf') format('truetype');
+    font-weight: 700;
+}

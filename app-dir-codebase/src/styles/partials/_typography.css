@@ -1,0 +1,3 @@
+.popup-text {
+    @apply font-700 text-22 leading-45 tracking-widest;
+}

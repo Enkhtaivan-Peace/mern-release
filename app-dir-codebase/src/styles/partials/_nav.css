@@ -1,0 +1,6 @@
+.admin-sidebar-item {
+    @apply font-railwayBold transition;
+}
+.admin-sidebar-item[aria-current='true'] {
+       @apply text-emerald-500; 
+}

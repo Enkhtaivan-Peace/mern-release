@@ -37,7 +37,7 @@ services:
     networks:
       - redis_net
       - db_net
-  front_pagesdir:
+  front_1:
     build:
       context: ./pages-dir-codebase
       dockerfile: ./Dockerfile
@@ -59,9 +59,9 @@ services:
 
   front_2:
     build:
-      context: ./pages-dir-codebase
+      context: ./app-dir-codebase
       dockerfile: ./Dockerfile
-      target: runner
+      target: runner2
     environment:
       NEXT_TELEMETRY_DISABLED: 1
       REDIS_HOST: redis
@@ -72,23 +72,19 @@ services:
       MYSQL_PASSWORD: 12345
       MYSQL_DATABASE: ts-sequelize-mysql-demo
     ports:
-      - "3000:3000"
+      - "3001:3000"
     depends_on:
       mysql:
         condition: service_healthy
 
-  # web2:
-  #   restart: on-failure
-  #   build: ./web2
-  #   ports:
-  #     - "82:5000"
   # nginx:
-  #   build: ./nginx
+  #   restart: on-failure
+  #   image: nginx:latest
   #   ports:
-  #     - "80:80"
-  #   depends_on:
-  #     - web
-  #     # - web2
+  #     - "8443:443"
+  #     - "8000:80"
+  #   volume:
+  #     - ./nginx/config.conf:/etc/nginx/default.conf
 
 networks:
   redis_net:

@@ -1,0 +1,66 @@
+.circle {
+    --size: 25px;
+    --offset: 100px;
+    width: var(--size);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: orangered;
+}
+#staticCircle .circle,
+#dynamicCircle .circle {
+    position: absolute;
+    top: calc(var(--size) / 2);
+    left: calc(var(--size) / 2);
+}
+#staticCircle {
+    .circle:nth-of-type(1) {
+        transform: translate(calc(cos(0deg) * 100px), calc(sin(0deg) * 100px));
+    }
+    .circle:nth-of-type(2) {
+        transform: translate(calc(cos(45deg) * 100px), calc(sin(45deg) * 100px));
+    }
+    .circle:nth-of-type(3) {
+        transform: translate(calc(cos(90deg) * 100px), calc(sin(90deg) * 100px));
+    }
+    .circle:nth-of-type(4) {
+        transform: translate(calc(cos(135deg) * 100px), calc(sin(135deg) * 100px));
+    }
+    .circle:nth-of-type(5) {
+        transform: translate(calc(cos(180deg) * 100px), calc(sin(180deg) * 100px));
+    }
+    .circle:nth-of-type(6) {
+        transform: translate(calc(cos(225deg) * 100px), calc(sin(225deg) * 100px));
+    }
+    .circle:nth-of-type(7) {
+        transform: translate(calc(cos(270deg) * 100px), calc(sin(270deg) * 100px));
+    }
+    .circle:nth-of-type(8) {
+        transform: translate(calc(cos(315deg) * 100px), calc(sin(315deg) * 100px));
+    }
+}
+
+$total: 8;
+#dynamicCircle {
+    @for $i from 0 through ($total - 1) {
+        .circle:nth-of-type(#{$i + 1}) {
+            --degree: #{$i} * 360deg / #{$total};
+            transform: translate(calc(cos(var(--degree)) * var(--offset)), calc(sin(var(--degree)) * var(--offset)));
+        }
+    }
+}
+
+.rise-animation {
+    animation: rise 5s ease-in-out alternate infinite;
+}
+
+@keyframes rise {
+    to {
+        transform: translateY(-500%);
+    }
+}
+
+@for $i from 1 through 12 {
+    .circle:nth-of-type(#{$i}) {
+        animation-delay: calc(sin(50deg) * #{$i}s);
+    }
+}

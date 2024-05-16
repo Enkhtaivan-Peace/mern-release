@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply font-notoRegular bg-background text-foreground antialiased;
+        text-rendering: optimizeLegibility;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+        @apply font-railwayBold;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    p,
+    a,
+    i,
+    b,
+    label,
+    button {
+        @apply text-foreground;
+    }
+
+    h1 {
+        @apply text-30 leading-45;
+    }
+
+    h2 {
+        @apply text-26 leading-35;
+    }
+
+    h3 {
+        @apply text-22 leading-27;
+    }
+
+    h4 {
+        @apply text-18 leading-16;
+    }
+
+    h5 {
+        @apply text-16 leading-24;
+    }
+
+    p,
+    label,
+    span,
+    a, 
+    .logo, button {
+        @apply text-16 text-gray-600 dark:text-white font-robotoRegular leading-24;
+    }
+
+    header,
+    footer,
+    aside,
+    nav,
+    main {
+        @apply dark:bg-gray-900;
+    }
+
+    input,
+    textarea,
+    select {
+        @apply text-16 inline-flex px-10 py-2 rounded outline-none border border-slate-300 border-opacity-10 bg-gray-300 focus:ring-2 focus:ring-blue-300 placeholder:text-gray-600;
+    }
+    img {
+        @apply max-w-full h-auto align-middle italic bg-no-repeat bg-cover;
+        shape-margin: 0.75rem;
+    }
+    code {
+        @apply text-red-300;
+    }
+}

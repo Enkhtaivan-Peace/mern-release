@@ -1,0 +1,31 @@
+.open-hamburger {
+    div {
+        transition: all 0.3s ease;
+        &:first-child {
+            rotate: 45deg;
+            transform: translateX(3px);
+            transform-origin: left;
+        }
+        &:nth-child(2) {
+            @apply translate-x-10 opacity-0;
+        }
+        &:last-child {
+            rotate: -45deg;
+            transform: translateX(2px);
+            transform-origin: left;
+        }
+    }
+}
+.active {
+    @apply bg-emerald-300 dark:bg-emerald-700;
+}
+.red-gradient {
+  background: linear-gradient(92deg, #ff5956 2.87%, #ee1e38 96.18%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.overlay-img {
+    border-image: fill 0 linear-gradient(#0003, #000);
+}

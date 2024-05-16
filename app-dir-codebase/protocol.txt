@@ -1,0 +1,23 @@
+backend project: ts-sequelize-mysql-demo - г асаана уу!!!
+
+
+ctl + shift + e   explorer хэсэг рүү шилжих
+ctrl + shift + b 
+
+usefull keys:
+f2
+f3 
+f12
+
+ctrl + shift + f12
+ctrl + pageUp
+ctrl + pageDown
+
+ctrl + k + w   --> close all files
+
+ctrl + D   --> select line
+
+alt + shift + A  ---> comment this line
+
+
+ctrl + K + ctrl + S  ---> keyboard shortcuts

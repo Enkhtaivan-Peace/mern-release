@@ -1,0 +1,27 @@
+'use client'
+import React, { useCallback } from 'react'
+import { IMobileMenuLink } from './_interface'
+import { useRouter } from 'next/navigation'
+import { useAdminHeaderCtx } from '../header/useAdminHeaderCtx'
+import tw from 'tailwind-styled-components'
+
+const MobileMenuLink = (props: IMobileMenuLink) => {
+    const { text, href } = props
+    const { push } = useRouter()
+    const { setIsOpenMobileMenu } = useAdminHeaderCtx()
+
+    const handleClick = useCallback(() => {
+        push(href)
+        setIsOpenMobileMenu(false)
+    }, [href, text])
+
+    return <AdminMobileMenuLinkTw onClick={handleClick}>{text}</AdminMobileMenuLinkTw>
+}
+
+const AdminMobileMenuLinkTw = tw.button`
+    py-2
+    bg-transparent
+    dark:!bg-gray-600
+`
+
+export default MobileMenuLink
